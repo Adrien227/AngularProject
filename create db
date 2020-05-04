@@ -1,0 +1,26 @@
+--create database
+CREATE DATABASE efrei;
+
+--connect to the database
+USE efrei;
+
+--list all tables. The result should be : Empty set
+Show tables;
+
+--user table
+CREATE TABLE utilisateur
+(
+    id INT PRIMARY KEY NOT NULL, -- Unique ID and not null
+    nom VARCHAR(100), -- name of user with varchar data type
+    prenom VARCHAR(100), -- same but for the firstname
+    email VARCHAR(255), -- email address
+)
+
+--article table
+CREATE TABLE article
+(
+  id INT PRIMARY KEY NOT NULL, -- Unique ID and not null
+  nom varchar(100) --name of the article data type
+  description varchar(100) --same but for the description
+  quantite INT --
+)
