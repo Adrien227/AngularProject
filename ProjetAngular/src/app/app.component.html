@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,6 +21,16 @@
   <h1 style="font-size: 50px;"><b>Blog - Projet Angular</b></h1>
   <p>Voici le blog réalisé dans le cadre du projet Angular</p>
 </div>
+
+
+<form>
+  <mat-form-field class="example-full-width">
+    <mat-label>Test</mat-label>
+    <input matInput>
+  </mat-form-field>
+</form>
+
+
 
 <!-- Grid -->
 <div class="w3-row">
@@ -121,7 +130,6 @@
           <label for="description"> <i style="margin-right: 0.4%;" class="tiny material-icons">create</i>Description de la tâche</label>
           </div>
       </div>
-
       
       <div style="margin: 3% 2% 0% 2%;" class="row">
           <div class="input-field">
@@ -185,36 +193,6 @@
 
 </body>
 </html>
-
-<script>
-  const Calendrier = document.querySelector('.datepicker');
-  M.Datepicker.init(Calendrier,{
-format:'dd/mm/yyyy',
-showClearBtn:true,
-showDaysInNextAndPreviousMonths:true,
-
-i18n:{
- labelMonthNext: 'Mois suivant',
-labelMonthPrev: 'Mois précédent',
-  labelMonthSelect: 'Selectionner le mois',
-  labelYearSelect: 'Selectionner une année',
-  months: [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
-  monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
-  weekdays: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
-  weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],
-  weekdaysAbbrev: [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
-  today: 'Aujourd\'hui',
-  clear: 'Réinitialiser',
-  cancel: 'Annuler'
-}
-});
-</script>
-
-<script>
-  const Selectionner = document.querySelector('select');
-  M.FormSelect.init(Selectionner,{});
-</script>
-
 
 
 <router-outlet></router-outlet>
