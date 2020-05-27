@@ -40,14 +40,21 @@ article.findById = (articleName, result) =>
       return;
     }
   
-    if (res.length) 
+    if (res) 
     {
-      console.log("found article: ", res[0]);
-      result(null, res[0]);
+      console.log("found article: ", res);
+      result(null, res);
       return;
     }
     result({ kind: "not_found" }, null);
   });
 };
+
+
+/***************************************
+ *              UPDATE                 *
+ ***************************************/
+
+
 
 module.exports = article;
