@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-ajout-article',
@@ -19,11 +20,20 @@ export class AjoutArticleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  verifForm() {
+    if (this.titre.hasError('required') || this.description.hasError('required') || this.corps.hasError('required') ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /*  Fonctions servant à effectuer des verifications sur les formulaires
+
   getErrorMessageTitre() {
     if (this.titre.hasError('required')) {
-      return 'Veuillez entrer un titre.';
+      return `Veuillez entrer un <strong>titre</strong>.`;
     }
-
     return '';
   }
 
@@ -31,7 +41,6 @@ export class AjoutArticleComponent implements OnInit {
     if (this.description.hasError('required')) {
       return 'Veuillez entrer une description.';
     }
-
     return '';
   }
 
@@ -39,9 +48,10 @@ export class AjoutArticleComponent implements OnInit {
     if (this.corps.hasError('required')) {
       return 'Veuillez remplir le corps de l\'article.';
     }
-
     return '';
   }
+
+  */
 
 
 
