@@ -27,7 +27,7 @@
 <div class="w3-row">
 
 <!-- Blog entries -->
-<div class="w3-col l8 s12">
+<div *ngIf="isActive(1) == false" class="w3-col l8 s12">
   
   <!-- Blog entry -->
   <div class="titreArticle w3-card-2">
@@ -64,13 +64,17 @@
       </div>  
     </div>
   </div>
+  <hr>
+
+  
+  
 <!-- END BLOG ENTRIES -->
 </div>
 
 
 
 <!-- Introduction menu -->
-<div class="w3-col l4">
+<div *ngIf="isActive(1) == false" class="w3-col l4">
   
   <!-- Posts -->
   <div class="w3-card w3-margin">
@@ -107,11 +111,69 @@
 
 <!-- END w3-content -->
 
-<div style="text-align: center;">
-  <a style="margin: 2% 0px 3% 0px;" onclick="ajouterTache()" class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>Ajouter un article</a>
+<div *ngIf="isActive(1) == true" class="card">
+  <div class="row">
+      <form class="col s12">
+
+      <div style="margin: 3% 2% 0% 2%;" class="row">
+          <div class="input-field">
+          <input id="description" name="description" type="text" class="validate" required>
+          <label for="description"> <i style="margin-right: 0.4%;" class="tiny material-icons">create</i>Description de la tâche</label>
+          </div>
+      </div>
+
+      
+      <div style="margin: 3% 2% 0% 2%;" class="row">
+          <div class="input-field">
+              <select id="categorie" required>
+                  <option value="" disabled selected>Choisissez la catégorie</option>
+              <optgroup label="Maison">
+                  <option value="Menage">Ménage</option>
+                  <option value="Rangement">Rangement</option>
+                  <option value="Courses">Courses</option>
+              </optgroup>
+              <optgroup label="Devoirs">
+                  <option value="Exercices">Exercices</option>
+                  <option value="Projet">Projet</option>
+                  <option value="CCNA">CCNA</option>
+                  <option value="Revisions">Revisions</option>
+              </optgroup>
+              <optgroup label="Sport">
+                  <option value="Basket">Basket</option>
+                  <option value="Velo">Vélo</option>
+              </optgroup>
+              </select>
+              <label> <i class="tiny material-icons">category</i> Catégorie</label>
+          </div>
+      </div>
+      
+      
+
+      <div style="margin: 3% 2% 5% 2%;" class="row">
+          <div class="input-field">
+              <input id="echeance" name="echeance" type="text" class="datepicker" required>
+              <label for="echeance"><i class="tiny material-icons">event_note</i> Date d'échéance</label>
+          </div>
+      </div>
+
+
+      <div *ngIf="isActive(1) == false" style="text-align: center;">
+          <a style="margin-bottom: 2%;" onclick="ajouterTache()" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Ajouter la tâche</a>
+      </div>
+      </form>
+  </div>
+</div>
+
+<div *ngIf="isActive(1) == false" style="text-align: center;">
+  <a style="margin: 2% 0px 3% 0px;" (click)="affectation(1)" class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>Ajouter un article</a>
+</div>
+<div *ngIf="isActive(1) == true" style="text-align: center;">
+  <a style="margin: 2% 0px 3% 0px;" (click)="affectation(1)" class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>Ajouter l'article</a>
 </div>
 
 </div>
+
+
 
 
 
@@ -123,6 +185,35 @@
 
 </body>
 </html>
+
+<script>
+  const Calendrier = document.querySelector('.datepicker');
+  M.Datepicker.init(Calendrier,{
+format:'dd/mm/yyyy',
+showClearBtn:true,
+showDaysInNextAndPreviousMonths:true,
+
+i18n:{
+ labelMonthNext: 'Mois suivant',
+labelMonthPrev: 'Mois précédent',
+  labelMonthSelect: 'Selectionner le mois',
+  labelYearSelect: 'Selectionner une année',
+  months: [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
+  monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
+  weekdays: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
+  weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],
+  weekdaysAbbrev: [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
+  today: 'Aujourd\'hui',
+  clear: 'Réinitialiser',
+  cancel: 'Annuler'
+}
+});
+</script>
+
+<script>
+  const Selectionner = document.querySelector('select');
+  M.FormSelect.init(Selectionner,{});
+</script>
 
 
 
