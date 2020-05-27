@@ -10,11 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material-module';
 import { AjoutArticleComponent } from './ajout-article/ajout-article.component';
+import { TemplateBlogComponent } from './template-blog/template-blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AjoutArticleComponent
+    AjoutArticleComponent,
+    TemplateBlogComponent
   ],
   imports: [
     BrowserModule,
