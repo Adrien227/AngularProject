@@ -29,9 +29,9 @@ article.getAll = result => {
  * Recherche d'un article spécifique. *
  **************************************/
 
-article.findById = (articleId, result) => 
+article.findById = (articleName, result) => 
 {
-  sql.query(`SELECT * FROM article WHERE id = ${articleId}`, (err, res) => 
+  sql.query(`SELECT * FROM article WHERE nom = '${articleName}'`, (err, res) => 
   {
     if (err) 
     {
@@ -49,6 +49,5 @@ article.findById = (articleId, result) =>
     result({ kind: "not_found" }, null);
   });
 };
-
 
 module.exports = article;
