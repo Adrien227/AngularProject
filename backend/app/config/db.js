@@ -3,10 +3,10 @@ const mysql = require('mysql');
 let connection = mysql.createConnection
 (
     {
-        host     : 'dwarves.iut-fbleau.fr',
-        user     : 'paraiso',
-        password : 'paraiso',
-        database : 'paraiso'
+        host     : 'localhost',
+        user     : 'root',
+        password : 'efrei2020',
+        database : 'angular'
     }
 );
 

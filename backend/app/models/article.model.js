@@ -5,6 +5,11 @@ const article = function(article) {
     this.description = article.description;
   };
 
+
+/***************************************
+ * Permet d'obtenir tous les articles. *
+ ***************************************/
+
 article.getAll = result => {
     sql.query("SELECT * FROM article", (err, res) => {
       if (err) {
@@ -19,5 +24,31 @@ article.getAll = result => {
       }
     });
   };
+
+/**************************************
+ * Recherche d'un article spécifique. *
+ **************************************/
+
+article.findById = (articleId, result) => 
+{
+  sql.query(`SELECT * FROM article WHERE id = ${articleId}`, (err, res) => 
+  {
+    if (err) 
+    {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+  
+    if (res.length) 
+    {
+      console.log("found article: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+    result({ kind: "not_found" }, null);
+  });
+};
+
 
 module.exports = article;
