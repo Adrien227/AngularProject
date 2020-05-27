@@ -5,4 +5,7 @@ module.exports = app => {
 
   //route permett de récupérer un article via son nom.
   app.get("/articles/:articleName", articles.findOne);
+
+  //route permettant à l'update.
+  app.put("/articles/:articleName", articles.update);
 }

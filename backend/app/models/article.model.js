@@ -55,6 +55,27 @@ article.findById = (articleName, result) =>
  *              UPDATE                 *
  ***************************************/
 
+article.modif = (name, article, result) => {
+  sql.query(
+    `UPDATE article SET nom = ?, description = ? WHERE nom = '${name}'`,
+    [article.name, article.description],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated article: ", { name: name, ...article });
+      result(null, { name: name, ...article });
+    }
+  );
+};
 
 
 module.exports = article;

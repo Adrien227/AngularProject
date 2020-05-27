@@ -38,3 +38,29 @@ exports.findOne = (req, res) => {
       }
     });
   };
+
+/***************************************
+ *              UPDATE                 *
+ ***************************************/
+
+exports.update = (req, res) => {
+  if (!req.body) 
+  {
+    res.status(400).send("Content can not be empty!");
+  }
+  article.modif(
+    req.params.articleName,
+    new article(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send(`N'existe pas : ${req.params.articleName}.`);
+        } 
+        else 
+        {
+          res.status(500).send(`Erreur durant la modification : ${req.params.articleName}`);
+        }
+      } else res.send(data);
+    }
+  );
+};
