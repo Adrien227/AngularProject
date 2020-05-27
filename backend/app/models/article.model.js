@@ -42,7 +42,7 @@ article.findById = (articleName, result) =>
   
     if (res) 
     {
-      console.log("found article: ", res);
+      console.log("Article trouvé: ", res);
       result(null, res);
       return;
     }
@@ -71,11 +71,18 @@ article.modif = (name, article, result) => {
         return;
       }
 
-      console.log("updated article: ", { name: name, ...article });
+      console.log("Modification de l'article: ", { name: name, ...article });
       result(null, { name: name, ...article });
     }
   );
 };
 
+/**
+ * Insert
+ */
+article.insert = (articleIns, result) =>
+{
+  sql.query("INSERT INTO article set")
+}
 
 module.exports = article;
