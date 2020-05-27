@@ -8,12 +8,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MaterialModule } from './material-module';
+import { AjoutArticleComponent } from './ajout-article/ajout-article.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AjoutArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormsModule,
     BrowserAnimationsModule, // Déclare des composants pour la gestion des formulaires : https://angular.io/api/forms/FormsModule
     ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

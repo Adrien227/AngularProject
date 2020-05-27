@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
@@ -22,13 +21,6 @@
   <p>Voici le blog réalisé dans le cadre du projet Angular</p>
 </div>
 
-
-<form>
-  <mat-form-field class="example-full-width">
-    <mat-label>Test</mat-label>
-    <input matInput>
-  </mat-form-field>
-</form>
 
 
 
@@ -111,6 +103,7 @@
   </div>
   <hr> 
 
+
   
 <!-- END Introduction Menu -->
 </div>
@@ -120,64 +113,15 @@
 
 <!-- END w3-content -->
 
-<div *ngIf="isActive(1) == true" class="card">
-  <div class="row">
-      <form class="col s12">
 
-      <div style="margin: 3% 2% 0% 2%;" class="row">
-          <div class="input-field">
-          <input id="description" name="description" type="text" class="validate" required>
-          <label for="description"> <i style="margin-right: 0.4%;" class="tiny material-icons">create</i>Description de la tâche</label>
-          </div>
-      </div>
-      
-      <div style="margin: 3% 2% 0% 2%;" class="row">
-          <div class="input-field">
-              <select id="categorie" required>
-                  <option value="" disabled selected>Choisissez la catégorie</option>
-              <optgroup label="Maison">
-                  <option value="Menage">Ménage</option>
-                  <option value="Rangement">Rangement</option>
-                  <option value="Courses">Courses</option>
-              </optgroup>
-              <optgroup label="Devoirs">
-                  <option value="Exercices">Exercices</option>
-                  <option value="Projet">Projet</option>
-                  <option value="CCNA">CCNA</option>
-                  <option value="Revisions">Revisions</option>
-              </optgroup>
-              <optgroup label="Sport">
-                  <option value="Basket">Basket</option>
-                  <option value="Velo">Vélo</option>
-              </optgroup>
-              </select>
-              <label> <i class="tiny material-icons">category</i> Catégorie</label>
-          </div>
-      </div>
-      
-      
-
-      <div style="margin: 3% 2% 5% 2%;" class="row">
-          <div class="input-field">
-              <input id="echeance" name="echeance" type="text" class="datepicker" required>
-              <label for="echeance"><i class="tiny material-icons">event_note</i> Date d'échéance</label>
-          </div>
-      </div>
+<app-ajout-article *ngIf="isActive(1) == true"></app-ajout-article>
 
 
-      <div *ngIf="isActive(1) == false" style="text-align: center;">
-          <a style="margin-bottom: 2%;" onclick="ajouterTache()" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Ajouter la tâche</a>
-      </div>
-      </form>
-  </div>
-</div>
 
 <div *ngIf="isActive(1) == false" style="text-align: center;">
-  <a style="margin: 2% 0px 3% 0px;" (click)="affectation(1)" class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>Ajouter un article</a>
+  <button mat-raised-button Basic color="primary" style="margin: 2% 0px 3% 0px; width: 13%;" (click)="affectation(1)"> Ajouter un article <i class="material-icons right">add_circle</i></button>
 </div>
-<div *ngIf="isActive(1) == true" style="text-align: center;">
-  <a style="margin: 2% 0px 3% 0px;" (click)="affectation(1)" class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>Ajouter l'article</a>
-</div>
+
 
 </div>
 
