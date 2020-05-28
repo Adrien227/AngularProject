@@ -36,7 +36,7 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>Retour</button>
+        <button mat-button (click)="myapp.affectation('blog')">Retour</button>
         <button type="submit" [disabled]="verifForm()" mat-raised-button color="primary">Créer l'article</button>
     </mat-card-actions>
 </mat-card>
