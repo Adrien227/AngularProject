@@ -1,8 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {NgForm} from '@angular/forms';
-import { AppComponent } from './../app.component';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-ajout-article',
@@ -17,11 +15,9 @@ export class AjoutArticleComponent implements OnInit {
   description =  new FormControl('', [Validators.required]);
   corps =  new FormControl('', [Validators.required]);
 
-  constructor(public myapp: AppComponent) { }
-
+  constructor() { }
 
   ngOnInit(): void {
-
   }
 
   verifForm() {
