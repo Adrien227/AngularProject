@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProjetAngular';
+  rubriqueActive = 'blog';
+
+  affectation(element: string){
+    if (element !== this.rubriqueActive) {
+      this.rubriqueActive = element;
+    }
+  }
+
+  isActive(element: string){
+    if (element === this.rubriqueActive) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
