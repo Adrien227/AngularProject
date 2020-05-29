@@ -29,3 +29,23 @@ exports.findOne = (req, res) => {
       } 
     });
   };
+
+exports.update = (req, res) => {
+    if (!req.body) {
+      res.status(400).send("Merci de bien remplir les champs.");
+    }
+  
+    article.updateByTitre(
+      req.params.articleTitre,
+      new article(req.body),
+      (err, data) => {
+        if (err) {
+          if (err.kind === "not_found") {
+            res.status(404).send(`Le titre : ${req.params.articleTitre} est inexistant. `);
+          } else {
+            res.status(500).send(`Impossible de mettre à jour : ${req.params.articleTitre}`);
+          }
+        } else res.send(data);
+      }
+    );
+  };
