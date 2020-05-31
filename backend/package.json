@@ -4,7 +4,7 @@
   "description": "Back-End basé sur Node JS/Express/MySQL",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "keywords": [
     "nodejs",
@@ -14,8 +14,15 @@
   "author": "Elies LAJNEF",
   "license": "ISC",
   "dependencies": {
+    "atob": "^2.1.2",
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "cryptr": "^6.0.2",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

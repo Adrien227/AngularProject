@@ -5,6 +5,7 @@ Import des modules.
 ****************/
 const express = require("express");
 const bodyParser = require("body-parser");
+var jwt = require('jsonwebtoken');
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/article.routes.js")(app);
+require("./app/routes/auth.routes.js")(app);
 
 // soit localhost:8080
 app.listen(8080, () => console.log('Listening on port 8080'))
