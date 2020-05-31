@@ -74,4 +74,23 @@ article.updateByTitre = (articleTitre, article, result) => {
  //INSERT se trouve directement dans article.route.js
 // Il m'était beaucoup plus simple de le faire là-bas même si j'aurai préféré une meilleure "structure."
 
+
+/***************
+ * SUPPRESSION *
+ ***************/
+
+article.delete = (articleTitre, result) => {
+  sql.query(`DELETE FROM article WHERE titre = '${articleTitre}'`, (err, res) => {
+    if (res) 
+    {
+      result(null, res);
+      return;
+    }
+    else
+    {
+      result(err, null);
+    }
+  });
+};
+
 module.exports = article;

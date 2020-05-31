@@ -17,7 +17,7 @@ exports.findAll = (req, res) => {
 /**************************************
  * Recherche d'un article spécifique. *
  **************************************/
-exports.findOne = (req, res) => {
+exports.findArticle = (req, res) => {
     article.listByTitle(req.params.articleTitre, (err, data) => {
       if(data)
       {
@@ -29,6 +29,10 @@ exports.findOne = (req, res) => {
       } 
     });
   };
+
+/**********
+ * INSERT *
+ **********/
 
 exports.update = (req, res) => {
     if (!req.body) {
@@ -49,3 +53,21 @@ exports.update = (req, res) => {
       }
     );
   };
+
+
+/***************
+ * SUPPRESSION *
+ ***************/
+
+exports.supp = (req, res) => {
+  article.delete(req.params.articleTitre, (err, data) => {
+    if(data)
+    {
+      res.send(data);
+    }
+    else
+    {
+      throw err;
+    } 
+  });
+};

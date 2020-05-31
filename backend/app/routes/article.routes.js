@@ -11,7 +11,7 @@ const connection = require("../config/db.js");
   app.get("/articles", articles.findAll);
 
   //route permettant de récupérer un article via son nom.
-  app.get("/articles/:articleTitre", articles.findOne);
+  app.get("/articles/:articleTitre", articles.findArticle);
 
   //Route permettant l'update d'un article.
   app.put("/articles/:articleTitre", articles.update);
@@ -25,4 +25,8 @@ const connection = require("../config/db.js");
       res.redirect('/articles');
     });
   });
+  
+  //Route permettant la suppression d'un article
+  app.delete("/articles/:articleTitre", articles.supp);
 }
+
